@@ -1,0 +1,18 @@
+auths:
+  public_v2:
+    version: 2
+    community: public
+
+modules:
+  if_mib:
+    walk:
+      - sysUpTime
+      - sysName
+      - sysDescr
+      - sysLocation
+      - sysContact
+      - interfaces
+      - ifXTable
+      - ifInErrors
+      - ifOutErrors
+    auth: public_v2
