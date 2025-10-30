@@ -20,7 +20,6 @@ COPY ./grafana/datasources/ /etc/grafana/provisioning/datasources/
 ENV GF_SECURITY_ADMIN_USER=admin \
     GF_SECURITY_ADMIN_PASSWORD=admin123 \
     GF_USERS_ALLOW_SIGN_UP=false \
-    GF_SERVER_ROOT_URL=http://localhost:3000 \
     GF_ANALYTICS_REPORTING_ENABLED=false \
     GF_ANALYTICS_CHECK_FOR_UPDATES=false
 EXPOSE 3000
@@ -41,4 +40,5 @@ RUN mkdir -p /var/agentx && \
     chmod 640 /etc/frr/frr.conf
 COPY ./router/supervisord.conf /etc/supervisord.conf
 EXPOSE 161/udp 162/udp 179
+
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
